@@ -1,5 +1,7 @@
 # bot-echo
 
+[![Join the chat at https://gitter.im/bot-echo/community](https://badges.gitter.im/bot-echo/community.svg)](https://gitter.im/bot-echo/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Just a bot that echoes whatever you say to it
 
 This bot has been created using [Bot Framework](https://dev.botframework.com), it shows how to create a simple bot that accepts input from the user and echoes it back.
