@@ -6,11 +6,11 @@
     "license": "MIT",
     "main": "index.js",
     "scripts": {
-        "start": "node ./index.js",
-        "watch": "nodemon ./index.js",
+        "start": "ts-node src",
+        "watch": "nodemon",
         "lint": "eslint --resolve-plugins-relative-to . .",
         "format": "yarn lint --fix",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "jest"
     },
     "repository": {
         "type": "git",
@@ -22,6 +22,8 @@
         "restify": "~8.2.0"
     },
     "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^4.22.1",
+        "@typescript-eslint/parser": "^4.22.1",
         "eslint": "^7.25.0",
         "eslint-config-standard": "^12.0.0",
         "eslint-plugin-import": "^2.16.0",
@@ -29,6 +31,10 @@
         "eslint-plugin-node": "^8.0.1",
         "eslint-plugin-promise": "^4.0.1",
         "eslint-plugin-standard": "^4.0.0",
-        "nodemon": "^1.18.10"
+        "jest": "^26.6.3",
+        "nodemon": "^2.0.7",
+        "nyc": "^15.1.0",
+        "ts-node": "^9.1.1",
+        "typescript": "^4.2.4"
     }
 }
