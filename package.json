@@ -8,7 +8,8 @@
     "scripts": {
         "start": "node ./index.js",
         "watch": "nodemon ./index.js",
-        "lint": "eslint .",
+        "lint": "eslint --resolve-plugins-relative-to . .",
+        "format": "yarn lint --fix",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "repository": {
@@ -21,9 +22,10 @@
         "restify": "~8.2.0"
     },
     "devDependencies": {
-        "eslint": "^5.13.0",
+        "eslint": "^7.25.0",
         "eslint-config-standard": "^12.0.0",
         "eslint-plugin-import": "^2.16.0",
+        "eslint-plugin-json": "^3.0.0",
         "eslint-plugin-node": "^8.0.1",
         "eslint-plugin-promise": "^4.0.1",
         "eslint-plugin-standard": "^4.0.0",
