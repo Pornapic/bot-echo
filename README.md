@@ -1,63 +1,66 @@
-# bot-echo
+# Echo Bot
 
-[![Join the chat at https://gitter.im/bot-echo/community](https://badges.gitter.im/bot-echo/community.svg)](https://gitter.im/bot-echo/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Join the chat at
+https://gitter.im/bot-echo/community](https://badges.gitter.im/bot-echo/community.svg)](https://gitter.im/bot-echo/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-Just a bot that echoes whatever you say to it
+Just a bot that echoes whatever you say to it. Useful for testing, or when
+you're extraordinarily bored.
 
-This bot has been created using [Bot Framework](https://dev.botframework.com), it shows how to create a simple bot that accepts input from the user and echoes it back.
+This bot has been created using [Bot Framework](https://dev.botframework.com),
+it shows how to create a simple bot that accepts input from the user and echoes
+it back.
 
 ## Prerequisites
 
-- [Node.js](https://nodejs.org) version 10.14.1 or higher
-
-    ```bash
-    # determine node version
-    node --version
-    ```
+- [Node.js](https://nodejs.org) version `10.14.1` or higher
+- [Yarn](https://yarnpkg.com/)
 
 ## To run the bot
 
 - Install modules
 
     ```bash
-    npm install
+    yarn install
     ```
 
 - Start the bot
 
     ```bash
-    npm start
+    yarn start
     ```
 
-## Testing the bot using Bot Framework Emulator
+## Testing the Bot Locally
 
-[Bot Framework Emulator](https://github.com/microsoft/botframework-emulator) is a desktop application that allows bot developers to test and debug their bots on localhost or running remotely through a tunnel.
+This section outlines the instructions to run and query the bot locally, which
+is only intended for development purposes. **Don't follow the same procedure in
+a remote server and then claim that the bot's been deployed because it doesn't
+count, really 💀**
 
-- Install the Bot Framework Emulator version 4.3.0 or greater from [here](https://github.com/Microsoft/BotFramework-Emulator/releases)
+### Start the Bot
 
-### Connect to the bot using Bot Framework Emulator
+The bot functions as an HTTP API server that listens to port `3978` by default
+(you can customise it by setting the `PORT` environment variable).
+
+Refer to [this section](#to-run-the-bot) for information about the command(s) to
+run to start the bot.
+
+### Install Bot Framework Emulator
+
+[Bot Framework Emulator](https://github.com/microsoft/botframework-emulator) is
+a desktop application that allows bot developers to test and debug their bots on
+localhost or running remotely through a tunnel.
+
+Install the Bot Framework Emulator version 4.13.0 or greater from
+[here](https://github.com/Microsoft/BotFramework-Emulator/releases)
+
+### Connect to the Bot Using Bot Framework Emulator
 
 - Launch Bot Framework Emulator
 - File -> Open Bot
-- Enter a Bot URL of `http://localhost:3978/api/messages`
+- Enter the Bot URL of `http://localhost:3978/api/messages`
 
-## Deploy the bot to Azure
+After connecting to the bot you'll a new tab opened in the app which emulates a
+messaging app with some other data (e.g. HTTP logs). Send a few messages to the
+bot and you'll see those messages sent back to you, like this:
 
-To learn more about deploying a bot to Azure, see [Deploy your bot to Azure](https://aka.ms/azuredeployment) for a complete list of deployment instructions.
-
-
-## Further reading
-
-- [Bot Framework Documentation](https://docs.botframework.com)
-- [Bot Basics](https://docs.microsoft.com/azure/bot-service/bot-builder-basics?view=azure-bot-service-4.0)
-- [Dialogs](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-concept-dialog?view=azure-bot-service-4.0)
-- [Gathering Input Using Prompts](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-prompts?view=azure-bot-service-4.0)
-- [Activity processing](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-concept-activity-processing?view=azure-bot-service-4.0)
-- [Azure Bot Service Introduction](https://docs.microsoft.com/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0)
-- [Azure Bot Service Documentation](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0)
-- [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)
-- [Azure Portal](https://portal.azure.com)
-- [Language Understanding using LUIS](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/)
-- [Channels and Bot Connector Service](https://docs.microsoft.com/en-us/azure/bot-service/bot-concepts?view=azure-bot-service-4.0)
-- [Restify](https://www.npmjs.com/package/restify)
-- [dotenv](https://www.npmjs.com/package/dotenv)
+![Local Testing](docs/img/local-testing.png)
