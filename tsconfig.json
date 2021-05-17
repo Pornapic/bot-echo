@@ -13,15 +13,16 @@
     "lib": [
       "es2020"
     ],
-    "rootDir": "./",
+    "rootDir": "src",
     "resolveJsonModule": true,
     "esModuleInterop": true
   },
   "include": [
-    "**/*.ts"
+    "src"
   ],
   "exclude": [
-    "node_modules",
-    "**/*.d.ts"
+    "__tests__",
+    "dist",
+    "node_modules"
   ]
 }
