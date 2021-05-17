@@ -1,13 +1,13 @@
-const dotenv = require("dotenv");
-const path = require("path");
-const restify = require("restify");
+import dotenv from "dotenv";
+import path from "path";
+import restify from "restify";
 
-// Import required bot services.
-// See https://aka.ms/bot-services to learn more about the different parts of a bot.
-const { BotFrameworkAdapter } = require("botbuilder");
+// Import required bot services. See https://aka.ms/bot-services to learn more
+// about the different parts of a bot.
+import { BotFrameworkAdapter } from "botbuilder";
 
 // This bot's main dialog.
-const { MyBot } = require("./bot");
+import { MyBot } from "./bot";
 
 // Import required bot configuration.
 const ENV_FILE = path.join(__dirname, ".env");
