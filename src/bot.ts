@@ -1,27 +1,44 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
-import { ActivityHandler } from "botbuilder";
+import {
+  ActivityHandler,
+  TurnContext,
+} from "botbuilder";
 
-export class MyBot extends ActivityHandler {
+export class EchoBot extends ActivityHandler {
   constructor() {
     super();
-    // See https://aka.ms/about-bot-activity-message to learn more about the message and other activity types.
-    this.onMessage(async (context, next) => {
-      await context.sendActivity(`${ context.activity.text }`);
-      // By calling next() you ensure that the next BotHandler is run.
-      await next();
-    });
 
-    this.onMembersAdded(async (context, next) => {
-      const membersAdded = context.activity.membersAdded;
-      for (let cnt = 0; cnt < membersAdded.length; ++cnt) {
-        if (membersAdded[cnt].id !== context.activity.recipient.id) {
-          await context.sendActivity("hey... 😏");
-        }
-      }
-      // By calling next() you ensure that the next BotHandler is run.
-      await next();
-    });
+    // See https://aka.ms/about-bot-activity-message to learn more about the
+    // message and other activity types
+    this.onMessage(EchoBot.messageHandler);
+    this.onMembersAdded(EchoBot.membersAddedHandler);
+  }
+
+  protected static async messageHandler(
+    context: TurnContext,
+    next: () => Promise<void>,
+  ): Promise<void> {
+    const { text: textIn } = context.activity;
+    await context.sendActivity(textIn);
+    return next();
+  }
+
+  protected static async membersAddedHandler(
+    context: TurnContext,
+    next: () => Promise<void>,
+  ): Promise<void> {
+    const {
+      membersAdded,
+      recipient,
+    } = context.activity;
+    await Promise.all(
+      membersAdded
+        .filter(({ id }) => id !== recipient.id)
+        .map(({ id }) => context.sendActivity(`${id} joined... 😏`)),
+    );
+
+    return next();
   }
 }

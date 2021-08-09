@@ -8,6 +8,12 @@ const config: Config.InitialOptions = {
     "**/__tests__/*.test.ts",
   ],
   collectCoverage: true,
+  collectCoverageFrom: [
+    "src/**/*.ts",
+  ],
+  coveragePathIgnorePatterns: [
+    "src/index.ts",
+  ],
   coverageThreshold: {
     global: {
       branches: 100,
