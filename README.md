@@ -1,8 +1,5 @@
 # Echo Bot
 
-[![Join the chat at
-https://gitter.im/bot-echo/community](https://badges.gitter.im/bot-echo/community.svg)](https://gitter.im/bot-echo/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
 Just a bot that echoes whatever you say to it. Useful for testing, or when
 you're extraordinarily bored.
 

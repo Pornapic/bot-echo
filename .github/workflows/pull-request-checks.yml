@@ -1,0 +1,33 @@
+name: Pull Request Checks
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  code_verification:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Linting
+        run: yarn lint
+      - name: Build
+        run: yarn build
+  unit_tests:
+    runs-on: ubuntu-latest
+    needs:
+      - code_verification
+    steps:
+      - name: Unit tests
+        run: yarn test
+  coverage:
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+    needs:
+      - code_verification
+    steps:
+      - uses: actions/checkout@v1
+      - uses: artiomtr/jest-coverage-report-action@v2.0-rc.1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          package-manager: yarn
