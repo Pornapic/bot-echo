@@ -13,6 +13,8 @@ jobs:
       - name: Build
         run: yarn build
   unit_tests:
+    needs:
+      - code_verification
     steps:
       - name: Run unit tests
         run: yarn test
